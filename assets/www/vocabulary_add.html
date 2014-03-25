@@ -27,54 +27,95 @@
 <body>
 
 <!-- Start  page -->
-<div data-role="page" >
+<div data-role="page" id="add-vocabulary-page" >
 
 	<div id="minna-header" data-role="header" style="border:none;" data-theme="b" data-position="fixed" >
-	    <h1>Add new world</h1>
-	    <a href="#" class="ui-btn ui-btn-left ui-mini ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</a>
-	    <button class="ui-btn ui-btn-right ui-mini ui-btn-inline ui-corner-all ui-btn-icon-right btn-theme-b ui-icon-check">Save</button>
+	    <h1>Thêm một từ</h1>
+	    <a href="vocabulary.html" class="ui-btn ui-btn-left ui-mini ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-delete">Hủy bỏ</a>
+	    <button class="ui-btn ui-btn-right ui-mini ui-btn-inline ui-corner-all ui-btn-icon-right btn-theme-b ui-icon-check">Lưu</button>
 	</div><!-- /header -->
 	
 	<!-- content -->
 	
-	<div data-role="navbar">
-        <ul>
-            <li><a href="#" data-ajax="false" class="ui-btn-active"><span style="float:left;">Lesson 1 : What is this?</span></a></li>
-        </ul>
-    </div><!-- /navbar -->
 	<div id="minna-content" data-role="content" role="main" >
-	    <!-- Flip switch -->
-	    <div id="flip-switch">
-	    <select  data-bind="options: ['Hiragana','Katakana'], value: Partecipating" data-role="slider" >
-	    </select>
 	    
-	    <br/>
-	    <script type="text/javascript">
-            viewModel = {
-                Partecipating: ko.observable('Yes'),
-                Vote: ko.observable('Yes')
-            };
-            ko.applyBindings(viewModel);
-        </script>
-	    </div><!-- /Flip switch -->
+	    
 	    
 	    <!-- input text -->
 	    <div id="input-field">
 	    
 	        <!-- Form -->
 	        <form>
-	        <label for="text-5">Kanji</label>
-	        <input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
-	        <label for="text-5">Han</label>
-	        <input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
-	        <label for="text-5">Hiragana</label>
-	        <input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
-	        <label for="text-5">Mean(en)</label>
-	        <input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
-	        <label for="text-5">Mean(vi)</label>
-	        <input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
-	        <label for="textarea-4">Note</label>
-	        <textarea data-mini="true" cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
+	        <div class="ui-field-contain">
+			    <label for="select-native-1">Chế độ nhập:</label>
+			    <!-- Flip switch -->
+			     <div id="flip-switch">
+				    <select id="inputmode" data-bind="options: ['Kanji','Katakana/Hiragana'], value: Partecipating" data-role="slider" >
+				    </select>
+				    
+				    <br/>
+				    <script type="text/javascript">
+			            viewModel = {
+			                Partecipating: ko.observable('Yes'),
+			                Vote: ko.observable('Yes')
+			            };
+			            ko.applyBindings(viewModel);
+			            
+			            // change input mode
+			            var val = 'Kanji';
+			            $('select#inputmode').change(function() {
+			                if(val!==$(this).val()){
+			                    /* alert($(this).val()); */
+			                    $('#hanmean').hide();
+			                    $('#hiragana').hide();
+			                }else{
+			                	$('#hanmean').show();
+			                    $('#hiragana').show();
+			                }
+			                //$('#add-vocabulary-page').page();
+			            });
+			        </script>
+				    </div><!-- /Flip switch -->
+			</div>
+	        <div class="ui-field-contain">
+			    <label for="select-native-1">Bài học:</label>
+			    <select name="select-native-1" id="select-native-1">
+			        <option value="1">Bài 1</option>
+			        <option value="2">Bài 2</option>
+			        <option value="3">Bài 3</option>
+			        <option value="4">Bài 4</option>
+			    </select>
+			</div>
+			 <div class="ui-field-contain">
+			   <label for="text-5">Kanji</label>
+	        	<input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
+			</div>
+			 <div class="ui-field-contain" id="hanmean">
+			   <label for="text-5">Nghĩa Hán</label>
+	        	<input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
+			</div>
+			 <div class="ui-field-contain" id="hiragana">
+			   <label for="text-5">Hiragana</label>
+	        	<input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
+			</div>
+			 <div class="ui-field-contain">
+			   <label for="text-5">Nghĩa (Tiếng Anh)</label>
+	        	<input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
+			</div>
+			 <div class="ui-field-contain">
+			   <label for="text-5">Nghĩa (Tiếng Việt)</label>
+	        	<input type="text" data-clear-btn="true" data-mini="true" name="text-5" id="text-5" value="">
+			</div>
+			 <div class="ui-field-contain">
+			   <label for="textarea-4">Ghi chú</label>
+	        	<textarea data-mini="true" cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
+			</div>
+	        
+	        
+	        
+	        
+	        
+	        
 	        </form>
 	        <!-- /Form -->
 	    

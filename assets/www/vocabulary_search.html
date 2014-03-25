@@ -19,26 +19,14 @@
 </head>
 
 <body>
-	<div data-role="page" 
-		data-title="Vocabulari" >
+	<div data-role="page" class="jqm-demos" id="panel-fixed-page1"
+		data-title="Vocabulary" data-url="panel-fixed-page1">
 
 		<!-- Start header -->
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<a href="#nav-panel" data-icon="bars" data-iconpos="notext"> Menu
-			</a>
-			<div data-role="controlgroup" data-type="horizontal"
-				class="ui-mini ui-btn-right" data-inline="true">
-				<a href="vocabulary_search.html"
-					class="ui-btn ui-btn-inline ui-icon-search ui-btn-icon-notext">Search</a>
-				<a href="vocabulary_add.html" data-ajax="false"
-					data-direction="reverse"
-					class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-notext">Edit</a>
-				<a href="vocabulary_favouries.html"
-					class="ui-btn ui-btn-inline ui-icon-star ui-btn-icon-notext">Favourite</a>
-			</div>
-
-			<h1 style="float: left; margin-left: 50px;">Bài 1:これは　なんですか</h1>
-		</div>
+		<div id="minna-header" data-role="header" style="border:none;" data-theme="b" data-position="fixed" >
+		    <h1>Tìm từ vựng</h1>
+		    <a href="vocabulary.html" class="ui-btn ui-btn-left ui-mini ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-home">Quay lại</a>
+		</div><!-- /header -->
 		<!-- /header -->
 
 		<!-- Start main content -->
@@ -46,9 +34,10 @@
 
 			<!-- show content -->
 			<div id="audio-content" data-type="vertical">
+				<input type="text" name="vocabulary_search_filter" id="vocabulary_search_filter" value="Tìm kiếm ..." />
 				<div data-role="collapsibleset" data-theme="a"
-					data-content-theme="b">
-					<ul data-role="listview" data-filter="true" data-filter-placeholder="Tìm kiếm..." >
+					data-content-theme="b" style="margin-top: 40px;">
+					<ul data-role="listview" >
 						
 						<li style="height: 80px;">
 							<fieldset class="ui-list-a">
@@ -166,7 +155,8 @@
 				<h5>Muc Luc</h5>
 			</div>
 			<ul data-role="listview" data-inset="true" data-divider-theme="a">
-				<li><a href="#" data-rel="close"> Lesson 1:  これはなんですか</a></li>
+				<li><a href="#" data-rel="close"> Lesson 1: Kore ha
+						nandesuka </a></li>
 				<li><a href="#" data-rel="close"> Kore ha nandesuka </a></li>
 				<li><a href="#" data-rel="close"> Kore ha nandesuka </a></li>
 				<li><a href="#" data-rel="close"> Kore ha nandesuka </a></li>
